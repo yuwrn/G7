@@ -1,0 +1,147 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+        }
+        .birthday-card {
+            background: #fff;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .birthday-card h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .birthday-card p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .image-gallery img {
+            max-width: 100px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        #timer {
+            font-size: 1.3em;
+            color: #444;
+        }
+        @media (max-width: 600px) {
+            .image-gallery {
+                justify-content: center;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .fade-text {
+           opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            animation-delay: 0.5s; /* 延时5秒 */
+        }
+        .yu-text {
+                opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            animation-delay: 1s; /* 延时5秒 */
+            }
+        .cu-text {
+                opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            animation-delay: 1.5s; /* 延时5秒 */
+            }
+            .snowflake {
+            color: #fff;
+            font-size: 1em;
+            position: fixed;
+            top: -10px;
+            user-select: none;
+            z-index: 1000;
+        }
+
+        @keyframes snowfall {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-card">
+        <h1 class="fade-text">生日快乐！</h1>
+        <p class="yu-text">愿你的每一天都充满欢笑和惊喜。</p>
+        <div class="image-gallery">
+            <img src="grey.png" class="cu-text" alt="Image 1">
+            <img src="Image_12253140096043.jpg" class="cu-text" alt="Image 2">
+            <img src="a.png" class="cu-text" alt="Image 3">
+            <img src="Image_12468238531620.jpg" class="cu-text" alt="Image 3">
+        </div>
+            <div class="music-player">
+            <audio controls>
+                <source src="EKKSTACY - i walk this earth all by myself [mqms2].ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </center>
+        <div id="timer">00天 00小时 00分钟 00秒</div>
+    </div>
+    <script>
+        function updateTimer() {
+            const startDate = new Date('2024-12-07T00:00:00Z');
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById('timer').textContent = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        }
+        setInterval(updateTimer, 1000);
+        // 下雪效果的JavaScript
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            // 减少动画持续时间，使雪花下落更快
+            snowflake.style.animationDuration = Math.random() * 5 + 2 + 's'; // 随机下落时间
+            snowflake.style.animationIterationCount = 'infinite';
+            snowflake.style.animationName = 'snowfall';
+            document.body.appendChild(snowflake);
+
+            // 雪花落下后移除
+            snowflake.addEventListener('animationend', function() {
+                snowflake.parentElement.removeChild(snowflake);
+            });
+        }
+
+        // 每隔一段时间创建一个新的雪花
+        setInterval(createSnowflake, 300); // 减少时间间隔，使雪花更密集
+    </script>
+</body>
+</html>
+ 

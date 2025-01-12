@@ -1,0 +1,96 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebCatX</title>
+    <style type="text/css">
+        body {
+            background-color: #f3e5f5;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .img-tu {
+            border-radius: 50%;
+            overflow: hidden;
+            height: 150px;
+            width: 150px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .marquee {
+            color: #6a1b9a;
+            background-color: #ede7f6;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 25px;
+            margin: 20px auto;
+            width: 80%;
+        }
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #673ab7;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #673ab7;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .button:hover {
+            background-color: #311b92;
+            transform: translateY(-3px);
+        }
+        .music-player {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        audio {
+            width: 100%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1><strong>生日快乐</strong></h1>
+        <img src="a.png" class="img-tu">
+        <div class="marquee">
+            <span>已满一百天啦，祝宝宝健康快乐的成长</span>
+        </div>
+        <a href="生日快乐.html" class="button">点击我</a>
+        <div class="music-player">
+            <audio controls>
+                <source src="EKKSTACY - i walk this earth all by myself [mqms2].ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </center>
+</body>
+</html>
+ 
